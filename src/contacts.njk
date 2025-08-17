@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Главная страница</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-contacts block1">
+                <div class="container">
+                    <div class="block-contacts__content">
+                        <div class="banner">
+                            <img src="img/bg2.webp" alt="" class="banner__bg">
+                            <div class="banner__content">
+                                <div class="breadcrumbs">
+                                    <div class="breadcrumbs__content">
+                                        <ul>
+                                            <li><a href="#">Главная</a></li>
+                                            <li><span>Контакты</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="banner__bottom">
+                                    <h2 class="title1">
+                                        Свяжитесь с нами любым <span>удобным способом</span>
+                                    </h2>
+                                    <div class="banner__icons">
+                                        <div class="banner__icon">
+                                            <svg aria-hidden="true" width="28" height="28">
+                                                <use xlink:href="img/sprite.svg#phone"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-contacts__body">
+                            <div class="block-contacts__left left-block-contacts">
+                                <div class="left-block-contacts__top">
+                                    <div class="title1">Оставьте свои контактные данные</div>
+                                    <p>
+                                        Перезвоним в ближайшее время.
+                                    </p>
+                                </div>
+                                <form action="#" class="form">
+                                    <div class="form__inputs">
+                                        <div class="form__input">
+                                            <input autocomplete="off" type="text" name="form[]" placeholder="Ваше имя">
+                                        </div>
+                                        <div class="form__input">
+                                            <input data-required="" autocomplete="off" type="text" name="form[]"
+                                                placeholder="Номер телефона">
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <input data-required id="c_3" class="checkbox__input" type="checkbox" value="3"
+                                            name="form[3]">
+                                        <label for="c_3" class="checkbox__label">
+                                            <span class="checkbox__icon"></span>
+                                            <span class="checkbox__text">
+                                                Отправляя форму, вы подтверждаете, что ознакомились с политикой
+                                                конфиденциальности и согласны на обработку персональных данных.
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn">
+                                        Отправить заявку
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="block-contacts__right right-block-contacts">
+                                <div class="right-block-contacts__top">
+                                    <div class="right-block-contacts__name">
+                                        ООО Земстройпарк
+                                    </div>
+                                    <span>ИНН 92833283, ОГРН 28394701з93438</span>
+                                </div>
+                                <div class="right-block-contacts__body">
+                                    <div class="right-block-contacts__column">
+                                        <div class="right-block-contacts__title">Телефон</div>
+                                        <a href="tel:79899899889" class="right-block-contacts__subtitle">+7 (989) 989 98
+                                            89</a>
+                                    </div>
+                                    <div class="right-block-contacts__column">
+                                        <div class="right-block-contacts__title">Электронная почта</div>
+                                        <a href="mailto:infomail@mail.ru"
+                                            class="right-block-contacts__subtitle">infomail@mail.ru</a>
+                                    </div>
+                                    <div class="right-block-contacts__column">
+                                        <div class="right-block-contacts__title">Адрес офиса</div>
+                                        <span class="right-block-contacts__subtitle">г. Москва, 17-й проезд Марьиной
+                                            Рощи, 4к1 БЦ «Марьина Роща» (офис 734)</span>
+                                    </div>
+                                </div>
+                                <div class="right-block-contacts__bottom">
+                                    <div class="right-block-contacts__top">
+                                        <div class="right-block-contacts__name">
+                                            ООО Земстройпарк
+                                        </div>
+                                        <span>ИНН 92833283, ОГРН 28394701з93438</span>
+                                    </div>
+                                    <div class="right-block-contacts__item">
+                                        <div class="right-block-contacts__title">Мессенджеры</div>
+                                        <div class="socials">
+                                            <a href="#">
+                                                <svg aria-hidden="true" width="24" height="24">
+                                                    <use xlink:href="img/sprite.svg#telegram"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#">
+                                                <svg aria-hidden="true" width="24" height="24">
+                                                    <use xlink:href="img/sprite.svg#whatsapp"></use>
+                                                </svg>
+                                            </a>
+                                            <span>Напишите нам</span>
+                                        </div>
+                                    </div>
+                                    <div class="right-block-contacts__item">
+                                        <div class="right-block-contacts__title">Соц. сети</div>
+                                        <div class="socials">
+                                            <a href="#">
+                                                <svg aria-hidden="true" width="24" height="24">
+                                                    <use xlink:href="img/sprite.svg#youtube"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#">
+                                                <svg aria-hidden="true" width="24" height="24">
+                                                    <use xlink:href="img/sprite.svg#zen"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="#">
+                                                <img loading="lazy" src="img/rutube.svg" alt="">
+                                            </a>
+                                            <a href="#">
+                                                <svg aria-hidden="true" width="24" height="24">
+                                                    <use xlink:href="img/sprite.svg#telegram"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="map2" class="block-contacts__map"></div>
+                    </div>
+                </div>
+            </div>
+
+            {% include 'blocks/ceo-text.njk' %}
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&amp;lang=ru_RU&amp;_v=20240623012845"></script>
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>
