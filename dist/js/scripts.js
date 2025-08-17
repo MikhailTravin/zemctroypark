@@ -328,6 +328,23 @@ if (map) {
   };
 }
 
+const map2 = document.querySelector('#map2');
+if (map2) {
+  ymaps.ready(init);
+
+  function init() {
+    var myMap2 = new ymaps.Map('map2', {
+      center: [55.699781, 37.619423],
+      zoom: 9,
+      controls: ['zoomControl'],
+      behaviors: ['drag']
+    }, {
+      searchControlProvider: 'yandex#search'
+    });
+
+  };
+}
+
 //========================================================================================================================================================
 
 if (document.querySelector('.block-sale__slider')) {
