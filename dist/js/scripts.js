@@ -183,12 +183,11 @@ if (iconMenu) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const menuItems = document.querySelectorAll('.menu-header__item');
-  const docEl = document.documentElement;
-  const breakpoint = 992;
+const menuItems = document.querySelectorAll('.menu-header__item');
+const docEl = document.documentElement;
+const breakpoint = 992;
 
-  // Обработка hover (только для десктопа)
+if (menuItems) {
   menuItems.forEach(item => {
     item.addEventListener('mouseenter', function () {
       if (window.innerWidth >= breakpoint) {
@@ -228,13 +227,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Закрытие меню при клике вне .menu-header__nav и .menu-header__dropdown
   document.addEventListener('click', function (e) {
     if (
       window.innerWidth < breakpoint &&
       docEl.classList.contains('menu-click') &&
       !e.target.closest('.menu-header__nav') &&
-      !e.target.closest('.menu-header__dropdown') // ← ключевое: теперь правильно написано
+      !e.target.closest('.menu-header__dropdown')
     ) {
       docEl.classList.remove('menu-click');
       menuItems.forEach(item => {
@@ -243,17 +241,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // При изменении размера окна (например, поворот устройства)
   window.addEventListener('resize', function () {
     if (window.innerWidth >= breakpoint) {
-      // На больших экранах убираем mobile-состояние
       docEl.classList.remove('menu-click');
       menuItems.forEach(item => {
         item.classList.remove('menu-click');
       });
     }
   });
-});
+}
 
 //========================================================================================================================================================
 
