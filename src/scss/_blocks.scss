@@ -45,6 +45,8 @@
         height: 100%;
         @media (max-width: 768px) {
             padding: 46px 30px 46px 26px;
+        }
+        @media (max-width: 767px) {
             margin: 15px;
             height: auto;
         }
@@ -513,6 +515,9 @@
         .btn {
             width: 330px;
             margin: 0 auto;
+            @media (max-width: 768px) {
+                width: 270px;
+            }
             @media (max-width: 480px) {
                 width: 100%;
             }
@@ -1256,7 +1261,7 @@
         padding: 5px 10px;
         @media (max-width: 650px) {
             width: auto;
-            padding: 5px 27px;
+            padding: 5px 26px;
         }
     }
 }
@@ -1369,6 +1374,345 @@
             @media (max-width: 650px) {
                 font-size: 12px;
             }
+        }
+    }
+}
+
+.block-land-purchase {
+    .heading-complex {
+        margin: 0px 0px 40px 0px;
+        @media (max-width: 768px) {
+            margin: 0px 0px 30px 0px;
+        }
+        @media (max-width: 480px) {
+            margin: 0px 0px 20px 0px;
+        }
+    }
+    .container {
+        @media (max-width: 650px) {
+            padding: 0px 0px 0px 0px;
+        }
+    }
+    // .block-land-purchase__content
+
+    &__content {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        @media (max-width: 650px) {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    // .block-land-purchase__bg1
+
+    &__bg1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    // .block-land-purchase__body
+
+    &__body {
+        border-radius: 20px;
+        margin: 50px;
+        overflow: hidden;
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(242, 243, 235);
+        }
+        @media (max-width: 1200px) {
+            margin: 15px 15px 0px 15px;
+        }
+    }
+
+    // .block-land-purchase__bg2
+
+    &__bg2 {
+        opacity: 0.1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    // .block-land-purchase__items
+
+    &__items {
+        position: relative;
+        z-index: 15;
+        padding: 50px 60px 112px 50px;
+        @media (max-width: 1200px) {
+            padding: 63px 30px 62px 30px;
+        }
+        @media (max-width: 768px) {
+            padding: 63px 15px 62px 30px;
+        }
+        @media (max-width: 650px) {
+            padding: 35px 13px 35px 15px;
+        }
+    }
+
+    // .block-land-purchase__columns
+
+    &__columns {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 85px;
+        @media (max-width: 1300px) {
+            gap: 35px 20px;
+        }
+        @media (max-width: 992px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 650px) {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+    }
+
+    // .block-land-purchase__column
+
+    &__column {
+        position: relative;
+        z-index: 15;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        @media (max-width: 650px) {
+            gap: 6px;
+        }
+    }
+
+    // .block-land-purchase__number
+
+    &__number {
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
+        border-radius: 50%;
+        background-color: var(--zelenyy-akcentnyy);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 130%;
+        text-align: center;
+        color: var(--belyy);
+        @media (max-width: 480px) {
+            width: 34px;
+            height: 34px;
+            font-size: 14px;
+            flex: 0 0 34px;
+        }
+    }
+
+    // .block-land-purchase__text
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        @media (max-width: 768px) {
+            gap: 6px;
+        }
+        p {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 125%;
+            @media (max-width: 480px) {
+                font-size: 12px;
+            }
+        }
+    }
+
+    // .block-land-purchase__title
+
+    &__title {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 120%;
+        @media (max-width: 768px) {
+            font-size: 20px;
+        }
+        @media (max-width: 480px) {
+            font-size: 18px;
+        }
+    }
+
+    // .block-land-purchase__buttons
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background: var(--zelenyy);
+        border-radius: 20px;
+        height: 100%;
+        padding: 24px 20px;
+        @media (max-width: 768px) {
+            padding: 29px 13px 28px 15px;
+            gap: 11px;
+        }
+        @media (max-width: 650px) {
+            margin: 0px 15px 15px 15px;
+            padding: 27px 15px;
+            gap: 12px;
+        }
+        p {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 120%;
+            @media (max-width: 768px) {
+                font-size: 20px;
+            }
+            @media (max-width: 650px) {
+                font-size: 18px;
+            }
+        }
+        .btn {
+            width: 100%;
+        }
+    }
+}
+
+.block-completed-projects {
+    .heading-complex {
+        margin: 0px 0px 40px 0px;
+        @media (max-width: 768px) {
+            margin: 0px 0px 30px 0px;
+        }
+        @media (max-width: 650px) {
+            margin: 0px 0px 20px 0px;
+        }
+    }
+
+    // .block-completed-projects__content
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        @media (max-width: 768px) {
+            gap: 30px;
+        }
+        .btn {
+            width: 330px;
+            @media (max-width: 768px) {
+                width: 240px;
+            }
+            @media (max-width: 480px) {
+                width: 100%;
+            }
+        }
+    }
+
+    // .block-completed-projects__body
+
+    &__body {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 25px;
+        .cart-catalog__item {
+            gap: 8px;
+            padding: 20px 5px 0px 5px;
+            @media (max-width: 768px) {
+                gap: 2px;
+                padding: 6px 5px 0px 5px;
+            }
+            @media (max-width: 650px) {
+                border-radius: 0px;
+                background-color: transparent;
+            }
+        }
+        .cart-catalog__images {
+            @media (max-width: 650px) {
+                border-radius: 20px;
+            }
+        }
+        .cart-catalog__title {
+            @media (max-width: 768px) {
+                font-size: 24px;
+            }
+            @media (max-width: 650px) {
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 1200px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 36px 20px;
+        }
+        @media (max-width: 650px) {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+    }
+}
+
+.block-social-subscribe {
+    .heading-complex {
+        flex-direction: column;
+        align-items: start;
+        margin: 0px 0px 40px 0px;
+        @media (max-width: 768px) {
+            margin: 0px 0px 30px 0px;
+        }
+        @media (max-width: 650px) {
+            margin: 0px 0px 20px 0px;
+        }
+    }
+    // .block-social-subscribe__content
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        @media (max-width: 768px) {
+            gap: 30px;
+        }
+        .btn {
+            width: 330px;
+            @media (max-width: 768px) {
+                width: 240px;
+            }
+            @media (max-width: 480px) {
+                width: 100%;
+            }
+        }
+    }
+
+    // .block-social-subscribe__body
+
+    &__body {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 25px;
+        @media (max-width: 1200px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px 20px;
+        }
+        @media (max-width: 650px) {
+            grid-template-columns: 1fr;
+            gap: 25px;
         }
     }
 }
