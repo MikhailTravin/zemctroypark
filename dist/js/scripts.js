@@ -166,6 +166,94 @@ if (header) {
 //========================================================================================================================================================
 
 //Меню
+const iconMenu = document.querySelector('.header__burger');
+const headerTop = document.querySelector('.menu-header');
+if (iconMenu) {
+  iconMenu.addEventListener("click", function (e) {
+    e.stopPropagation();
+    document.documentElement.classList.toggle("menu-open");
+  });
+  document.addEventListener('click', function (e) {
+    const isClickInsideHeaderTop = headerTop && headerTop.contains(e.target);
+    const isClickOnMenuIcon = e.target === iconMenu || iconMenu.contains(e.target);
+
+    if (!isClickInsideHeaderTop && !isClickOnMenuIcon) {
+      document.documentElement.classList.remove("menu-open");
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const menuItems = document.querySelectorAll('.menu-header__item');
+  const docEl = document.documentElement;
+  const breakpoint = 992;
+
+  // Обработка hover (только для десктопа)
+  menuItems.forEach(item => {
+    item.addEventListener('mouseenter', function () {
+      if (window.innerWidth >= breakpoint) {
+        docEl.classList.add('menu-hover');
+        this.classList.add('menu-hover');
+      }
+    });
+
+    item.addEventListener('mouseleave', function () {
+      if (window.innerWidth >= breakpoint) {
+        docEl.classList.remove('menu-hover');
+        this.classList.remove('menu-hover');
+      }
+    });
+
+    // Обработка клика (только для мобильных)
+    item.addEventListener('click', function (e) {
+      if (window.innerWidth < breakpoint) {
+        e.preventDefault();
+        e.stopPropagation(); // Останавливаем всплытие, чтобы не закрылось сразу
+
+        const wasActive = this.classList.contains('menu-click');
+
+        // Сброс всех состояний
+        menuItems.forEach(el => {
+          el.classList.remove('menu-click');
+        });
+
+        // Переключение состояния
+        if (!wasActive) {
+          this.classList.add('menu-click');
+          docEl.classList.add('menu-click');
+        } else {
+          docEl.classList.remove('menu-click');
+        }
+      }
+    });
+  });
+
+  // Закрытие меню при клике вне .menu-header__nav и .menu-header__dropdown
+  document.addEventListener('click', function (e) {
+    if (
+      window.innerWidth < breakpoint &&
+      docEl.classList.contains('menu-click') &&
+      !e.target.closest('.menu-header__nav') &&
+      !e.target.closest('.menu-header__dropdown') // ← ключевое: теперь правильно написано
+    ) {
+      docEl.classList.remove('menu-click');
+      menuItems.forEach(item => {
+        item.classList.remove('menu-click');
+      });
+    }
+  });
+
+  // При изменении размера окна (например, поворот устройства)
+  window.addEventListener('resize', function () {
+    if (window.innerWidth >= breakpoint) {
+      // На больших экранах убираем mobile-состояние
+      docEl.classList.remove('menu-click');
+      menuItems.forEach(item => {
+        item.classList.remove('menu-click');
+      });
+    }
+  });
+});
 
 //========================================================================================================================================================
 
