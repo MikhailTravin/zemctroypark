@@ -413,18 +413,21 @@ if (document.querySelector('.block-video-reviews__slider')) {
 
 //========================================================================================================================================================
 
-//Квиз
+// Квиз
 const quizColumns = document.querySelectorAll('.block-quiz__column');
-if (quizColumns) {
-
+if (quizColumns.length > 0) {
   const prevButtons = document.querySelectorAll('.block-quiz__arrow-prev');
   const nextButtons = document.querySelectorAll('.block-quiz__arrow-next');
   let currentQuestion = 0;
 
-  showQuestion(currentQuestion);
+  initQuiz();
 
-  prevButtons.forEach(btn => btn.addEventListener('click', showPrevQuestion));
-  nextButtons.forEach(btn => btn.addEventListener('click', showNextQuestion));
+  function initQuiz() {
+    showQuestion(currentQuestion);
+
+    prevButtons.forEach(btn => btn.addEventListener('click', showPrevQuestion));
+    nextButtons.forEach(btn => btn.addEventListener('click', showNextQuestion));
+  }
 
   function showPrevQuestion() {
     if (currentQuestion > 0) {
@@ -441,13 +444,14 @@ if (quizColumns) {
   }
 
   function showQuestion(index) {
-    quizColumns.forEach(column => {
-      column.classList.remove('_active');
-    });
+    if (quizColumns[index]) {
+      quizColumns.forEach(column => {
+        column.classList.remove('_active');
+      });
 
-    quizColumns[index].classList.add('_active');
-
-    updateButtonsState();
+      quizColumns[index].classList.add('_active');
+      updateButtonsState();
+    }
   }
 
   function updateButtonsState() {
