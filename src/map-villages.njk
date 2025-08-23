@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Карта поселков</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-map-villages block1">
+                <div class="container">
+                    <div class="block-map-villages__content">
+                        <div class="banner">
+                            <img src="img/bg2.webp" alt="" class="banner__bg">
+                            <div class="banner__content">
+                                <div class="breadcrumbs">
+                                    <div class="breadcrumbs__content">
+                                        <ul>
+                                            <li><a href="#">Главная</a></li>
+                                            <li><span>Карта поселков</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="banner__bottom">
+                                    <h2 class="title1">
+                                        Земельные участки для строительства <span>дома в Московской области</span>
+                                    </h2>
+                                    <div class="banner__icons">
+                                        <div class="banner__icon">
+                                            <svg aria-hidden="true" width="28" height="28">
+                                                <use xlink:href="img/sprite.svg#map"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-map-villages__body">
+                            <div id="map3" class="block-map-villages__map"></div>
+                            <div class="heading-complex">
+                                <div class="heading-complex__map">
+                                    <ul>
+                                        <li>
+                                            <div style="background-color:#97a100;" class="heading-complex__map-icon">
+                                            </div>
+                                            <span>Реализуемые проекты</span>
+                                        </li>
+                                        <li>
+                                            <div style="background-color: #ffd31f;" class="heading-complex__map-icon">
+                                            </div>
+                                            <span>Новые поселки</span>
+                                        </li>
+                                        <li>
+                                            <div style="background-color: #ff931d;" class="heading-complex__map-icon">
+                                            </div>
+                                            <span>Действует акция</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn">Открыть каталог поселков</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% include 'blocks/help-offer.njk' %}
+
+            {% include 'blocks/ceo-text.njk' %}
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&amp;lang=ru_RU&amp;_v=20240623012845"></script>
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

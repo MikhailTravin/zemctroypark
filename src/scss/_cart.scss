@@ -49,7 +49,7 @@
         left: 16px;
         z-index: 10;
         gap: 6px;
-        max-width: 227px;
+        max-width: 350px;
         @media (max-width: 650px) {
             top: 10px;
             left: 10px;
@@ -66,11 +66,11 @@
         padding: 6px 12px;
         white-space: nowrap;
         font-weight: 600;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 130%;
         text-align: center;
         @media (max-width: 650px) {
-            font-size: 10px;
+            font-size: 14px;
             padding: 5px 10px;
         }
     }
@@ -80,6 +80,7 @@
     &__item {
         display: flex;
         flex-direction: column;
+        align-items: start;
         gap: 2px;
         padding: 15px 5px 0px 5px;
         @media (max-width: 1330px) {
@@ -104,6 +105,16 @@
         font-weight: 600;
         font-size: 24px;
         line-height: 120%;
+        display: inline;
+        background-image: linear-gradient(currentColor, currentColor);
+        background-position: 0% 100%;
+        background-size: 0% 1px;
+        background-repeat: no-repeat;
+        transition: background-size 0.5s ease;
+        padding-bottom: 2px;
+        &:hover {
+            background-size: 100% 1px;
+        }
         @media (max-width: 768px) {
             font-size: 20px;
         }
@@ -115,6 +126,7 @@
     // .cart-catalog__bottom
 
     &__bottom {
+        width: 100%;
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
@@ -156,8 +168,26 @@
                 background-size: 100% 1px;
             }
             @media (max-width: 650px) {
-                font-size: 12px;
+                font-size: 14px;
             }
+        }
+    }
+
+    // .cart-catalog__name
+
+    &__name {
+        font-weight: 600 !important;
+        line-height: 130%;
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        transition: opacity 0.3s;
+        margin: 0px 0px 6px 0px;
+        &:hover {
+            background-size: 0% 1px !important;
+            opacity: 0.7;
+        }
+        @media (max-width: 768px){
+              margin: 0px 0px 0px 0px;
         }
     }
 
@@ -177,7 +207,7 @@
                 text-align: left;
             }
             @media (max-width: 650px) {
-                font-size: 12px;
+                font-size: 14px;
                 line-height: 125%;
             }
         }
