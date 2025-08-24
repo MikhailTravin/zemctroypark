@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-    <title>Страница поселка</title>
+    <title>Страница участка</title>
     {% include 'blocks/head.njk' %}
 </head>
 
@@ -11,7 +11,7 @@
         {% include 'blocks/header.njk' %}
         <main class="main">
 
-            <div class="block-product-card block1">
+            <div class="block-product-card block1 area">
                 <div class="container">
                     <div class="block-product-card__top top-product-card">
                         <img loading="lazy" src="img/image2.webp" alt="" class="top-product-card__bg">
@@ -21,7 +21,8 @@
                                     <ul>
                                         <li><a href="#">Главная</a></li>
                                         <li><a href="#">Каталог поселков</a></li>
-                                        <li><span>Барыбино</span></li>
+                                        <li><a href="#">Барыбино</a></li>
+                                        <li><span>Участок 6 соток №322</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -144,8 +145,9 @@
                         <div data-da=".top-product-card, 650, last" class="center-product-card__info">
                             <div class="center-product-card__top">
                                 <h1 class="title1">
-                                    Поселок Барыбино
+                                    Участок 6 соток №322
                                 </h1>
+                                <a href="#" class="center-product-card__link">Коттеджный поселок Барыбино</a>
                                 <div class="center-product-card__body">
                                     <ul>
                                         <li>
@@ -164,10 +166,18 @@
                                             </div>
                                             <span>Городской округ Пушкинский</span>
                                         </li>
+                                        <li>
+                                            <div class="center-product-card__icon">
+                                                <svg aria-hidden="true" width="13" height="13">
+                                                    <use xlink:href="img/sprite.svg#dimensions"></use>
+                                                </svg>
+                                            </div>
+                                            <span>Площадь 6,65 соток</span>
+                                        </li>
                                     </ul>
                                     <div class="center-product-card__prices">
-                                        <span>Стоимость сотки</span>
-                                        <div class="center-product-card__summ">от 149 000 р.</div>
+                                        <div class="center-product-card__summ">2 149 000 р.</div>
+                                        <span>122 000 р. за сотку</span>
                                     </div>
                                 </div>
                             </div>
@@ -180,7 +190,7 @@
                                     <div class="center-product-card__tag">Общественный транспорт</div>
                                 </div>
                                 <p>
-                                    Подходит для строительства, регистрации дома и прописки.
+                                    Все участки подходят для строительства, регистрации дома и прописки.
                                 </p>
                                 <div class="center-product-card__buttons">
                                     <a href="#" class="btn">Записаться на просмотр</a>
