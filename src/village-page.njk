@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Страница поселка</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-calculator block1">
+                <div class="container">
+                    <div class="heading-complex">
+                        <h2 class="title1">
+                            Калькулятор рассрочки
+                        </h2>
+                    </div>
+                    <div class="block-calculator__content">
+                        <div class="block-calculator__right right-block-calculator">
+                            <div class="right-block-calculator__top">
+                                <div class="right-block-calculator__titles">
+                                    <div class="right-block-calculator__title">
+                                        Заполните поля, чтобы рассчитать условия рассрочки
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-block-calculator__bottom">
+                                <div class="right-block-calculator__input">
+                                    <div class="right-block-calculator__name">Стоимость участка, руб.</div>
+                                    <input autocomplete="off" type="text" name="form[]" value="2 568 300"
+                                        placeholder="2 568 300">
+                                </div>
+                                <div class="right-block-calculator__input">
+                                    <div class="right-block-calculator__name">Первоначальный взнос, %</div>
+                                    <input autocomplete="off" type="text" name="form[]" value="20" placeholder="20">
+                                </div>
+                                <div class="right-block-calculator__input">
+                                    <div class="right-block-calculator__name">Срок рассрочки, мес.</div>
+                                    <input autocomplete="off" type="text" name="form[]" value="12" placeholder="12">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-calculator__left left-block-calculator">
+                            <div class="left-block-calculator__top">
+                                <div class="left-block-calculator__titles">
+                                    <div class="left-block-calculator__title">
+                                        Результат расчетов
+                                    </div>
+                                    <p>
+                                        Рассрочка рассчитывается по схеме аннуитетных платежей, до 2 лет с процентной
+                                        ставкой рефинансирования ЦБ (21%) + 1% = Итого 22%
+                                    </p>
+                                </div>
+                                <div class="left-block-calculator__icon">
+                                    <svg aria-hidden="true" width="22" height="22">
+                                        <use xlink:href="img/sprite.svg#calculator"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="left-block-calculator__bottom">
+                                <div class="left-block-calculator__results">
+                                    <ul>
+                                        <li>
+                                            <div class="left-block-calculator__name">Скидка</div>
+                                            <div class="left-block-calculator__result">10,5%</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-block-calculator__name">Первоначальный взнос</div>
+                                            <div class="left-block-calculator__result">513 660 р.</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-block-calculator__name">Годовая ставка</div>
+                                            <div class="left-block-calculator__result">22%</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-block-calculator__name">Общая сумма выплат</div>
+                                            <div class="left-block-calculator__result">2 188 475 р.</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-block-calculator__name">Стоимость участка со скидкой</div>
+                                            <div class="left-block-calculator__result">2 298 629 р.</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-block-calculator__name">Сумма рассрочки</div>
+                                            <div class="left-block-calculator__result">2 054 640 р.</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-block-calculator__name">Ежемесячный платеж</div>
+                                            <div class="left-block-calculator__result">364 746 р.</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-block-calculator__name">Переплата</div>
+                                            <div class="left-block-calculator__result">133 835 р.</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="buttons-left-calculator">
+                                    <div class="buttons-left-calculator__top">
+                                        <div class="buttons-left-calculator__title">
+                                            Хотите оставить заявку на получение рассрочки или задать вопросы?
+                                        </div>
+                                        <div class="buttons-left-calculator__subtitle">
+                                            Оставьте контактные данные, мы перезвоним в ближайшее время, чтобы обсудить
+                                            детали.
+                                        </div>
+                                    </div>
+                                    <a href="#" data-popup="#select-site" class="btn">Оставить заявку</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-catalog block1">
+                <div class="container">
+                    <div class="heading-complex">
+                        <h2 class="title1">
+                            Похожие поселки,
+                            <span>которые могут вам подойти</span>
+                        </h2>
+                    </div>
+                    <div class="block-catalog__content">
+                        <div class="block-catalog__body">
+                            <div class="cart-catalog">
+                                <a href="#" class="cart-catalog__images">
+                                    <img loading="lazy" src="img/image4.webp" alt="">
+                                    <div class="cart-catalog__tags">
+                                        <div class="cart-catalog__tag">
+                                            Рядом водоемы
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Проведен газ
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Общественный транспорт
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="cart-catalog__item">
+                                    <a href="#" class="cart-catalog__title">Барыбино</a>
+                                    <div class="cart-catalog__bottom">
+                                        <div class="cart-catalog__text">
+                                            <a href="#">Район Домодедово</a>
+                                            <a href="#">Каширское шоссе, 39 км от МКАД</a>
+                                        </div>
+                                        <div class="cart-catalog__prices">
+                                            <div class="cart-catalog__price">от 149 000 р.</div>
+                                            <span>Цена за сотку</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-catalog">
+                                <a href="#" class="cart-catalog__images">
+                                    <img loading="lazy" src="img/image5.webp" alt="">
+                                    <div class="cart-catalog__tags">
+                                        <div class="cart-catalog__tag">
+                                            Рядом водоемы
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Школа рядом
+                                        </div>
+                                    </div>
+                                    <div class="sale">
+                                        149 000 руб. <span>200 000</span><br> за сотку
+                                    </div>
+                                </a>
+                                <div class="cart-catalog__item">
+                                    <a href="#" class="cart-catalog__title">Братовщина</a>
+                                    <div class="cart-catalog__bottom">
+                                        <div class="cart-catalog__text">
+                                            <a href="#">Район Домодедово</a>
+                                            <a href="#">Каширское шоссе, 39 км от МКАД</a>
+                                        </div>
+                                        <div class="cart-catalog__prices">
+                                            <div class="cart-catalog__price">от 149 000 р.</div>
+                                            <span>Цена за сотку</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-catalog">
+                                <a href="#" class="cart-catalog__images">
+                                    <img loading="lazy" src="img/image6.webp" alt="">
+                                    <div class="cart-catalog__tags">
+                                        <div class="cart-catalog__tag">
+                                            В окружении леса
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Проведен газ
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="cart-catalog__item">
+                                    <a href="#" class="cart-catalog__title">Калистово</a>
+                                    <div class="cart-catalog__bottom">
+                                        <div class="cart-catalog__text">
+                                            <a href="#">Район Домодедово</a>
+                                            <a href="#">Каширское шоссе, 39 км от МКАД</a>
+                                        </div>
+                                        <div class="cart-catalog__prices">
+                                            <div class="cart-catalog__price">от 149 000 р.</div>
+                                            <span>Цена за сотку</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn">Смотреть все</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-market-leader block1">
+                <div class="container">
+                    <div class="block-market-leader__content">
+                        <img loading="lazy" src="img/image33.webp" alt="" class="block-market-leader__logo">
+                        <div class="block-market-leader__body">
+                            <img loading="lazy" src="img/image29.webp" alt="" class="block-market-leader__bg">
+                            <div class="block-market-leader__left">
+                                <h2 class="title1">
+                                    <span>лидер на рынке МО</span>
+                                    по продаже участков
+                                    для строительства малоэтажных домов
+                                </h2>
+                            </div>
+                            <div class="block-market-leader__right">
+                                <div class="block-market-leader__column">
+                                    <div class="block-market-leader__item">
+                                        <div class="block-market-leader__number">17 ЛЕТ</div>
+                                        <p>
+                                            На рынке загородной недвижимости
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="block-market-leader__column">
+                                    <div class="block-market-leader__item">
+                                        <div class="block-market-leader__number">14 000</div>
+                                        <p>
+                                            Проданных участков
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="block-market-leader__column">
+                                    <div class="block-market-leader__item">
+                                        <div class="block-market-leader__number">300 га</div>
+                                        <p>
+                                            Земли в собственности
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="block-market-leader__column">
+                                    <div class="block-market-leader__item">
+                                        <div class="block-market-leader__number">16</div>
+                                        <p>
+                                            Поселков в разных направлениях МО
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-video-reviews block1">
+                <div class="container">
+                    <div class="heading-complex">
+                        <h2 class="title1">
+                            Видеоотзывы людей, которые уже приобрели у нас
+                            <span>участок своей мечты</span>
+                        </h2>
+                        <div class="arrows">
+                            <div class="block-video-reviews__arrow-prev arrow-prev">
+                                <svg aria-hidden="true" width="16" height="8">
+                                    <use xlink:href="img/sprite.svg#arrow2"></use>
+                                </svg>
+                            </div>
+                            <div class="block-video-reviews__arrow-next arrow-next">
+                                <svg aria-hidden="true" width="16" height="8">
+                                    <use xlink:href="img/sprite.svg#arrow2"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-video-reviews__content">
+                        <div class="block-video-reviews__slider swiper">
+                            <div class="block-video-reviews__wrapper swiper-wrapper">
+                                <a href="files/videos/video.mp4" data-fancybox="gallery1"
+                                    class="block-video-reviews__slide swiper-slide">
+                                    <div class="cart-video">
+                                        <div class="cart-video__image">
+                                            <img loading="lazy" src="img/image18.webp" alt="">
+                                            <div class="play">
+                                                <svg aria-hidden="true" width="17" height="24">
+                                                    <use xlink:href="img/sprite.svg#play"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <span>Ирина и Михаил, поселок Барыбино, 2020 год</span>
+                                    </div>
+                                </a>
+                                <a href="files/videos/video.mp4" data-fancybox="gallery1"
+                                    class="block-video-reviews__slide swiper-slide">
+                                    <div class="cart-video">
+                                        <div class="cart-video__image">
+                                            <img loading="lazy" src="img/image19.webp" alt="">
+                                            <div class="play">
+                                                <svg aria-hidden="true" width="17" height="24">
+                                                    <use xlink:href="img/sprite.svg#play"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <span>Мария, поселок Барыбино, 2020 год</span>
+                                    </div>
+                                </a>
+                                <a href="files/videos/video.mp4" data-fancybox="gallery1"
+                                    class="block-video-reviews__slide swiper-slide">
+                                    <div class="cart-video">
+                                        <div class="cart-video__image">
+                                            <img loading="lazy" src="img/image20.webp" alt="">
+                                            <div class="play">
+                                                <svg aria-hidden="true" width="17" height="24">
+                                                    <use xlink:href="img/sprite.svg#play"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <span>Алексей и Марина, поселок Барыбино, 2020 год</span>
+                                    </div>
+                                </a>
+                                <a href="files/videos/video.mp4" data-fancybox="gallery1"
+                                    class="block-video-reviews__slide swiper-slide">
+                                    <div class="cart-video">
+                                        <div class="cart-video__image">
+                                            <img loading="lazy" src="img/image19.webp" alt="">
+                                            <div class="play">
+                                                <svg aria-hidden="true" width="17" height="24">
+                                                    <use xlink:href="img/sprite.svg#play"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <span>Мария, поселок Барыбино, 2020 год</span>
+                                    </div>
+                                </a>
+                                <a href="files/videos/video.mp4" data-fancybox="gallery1"
+                                    class="block-video-reviews__slide swiper-slide">
+                                    <div class="cart-video">
+                                        <div class="cart-video__image">
+                                            <img loading="lazy" src="img/image20.webp" alt="">
+                                            <div class="play">
+                                                <svg aria-hidden="true" width="17" height="24">
+                                                    <use xlink:href="img/sprite.svg#play"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <span>Алексей и Марина, поселок Барыбино, 2020 год</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-news block1">
+                <div class="container">
+                    <div class="heading-complex">
+                        <h2 class="title1">
+                            Новости поселка Барыбино
+                        </h2>
+                    </div>
+                    <div class="block-news__content">
+                        <div class="block-news__body">
+                            <a href="#" class="block-news__column">
+                                <img class="block-news__image" loading="lazy" src="img/image8.webp" alt="">
+                                <div class="block-news__item">
+                                    <div class="block-news__top">
+                                        <div class="block-news__title">В поселке начали ремонт дорог</div>
+                                        <div class="block-news__data">16.07.2025</div>
+                                    </div>
+                                    <p>
+                                        Поселок в окружении лесов и полей, где можно гулять босиком, собирать грибы и
+                                        слушать пение птиц. Никакого смога, только свежий воздух и тишина, которых так
+                                        не
+                                        хватает в городе.
+                                    </p>
+                                </div>
+                            </a>
+                            <a href="#" class="block-news__column">
+                                <img class="block-news__image" loading="lazy" src="img/image31.webp" alt="">
+                                <div class="block-news__item">
+                                    <div class="block-news__top">
+                                        <div class="block-news__title">
+                                            Реализация намеченных плановых заданий продолжает удивлять пользователей
+                                        </div>
+                                        <div class="block-news__data">16.07.2025</div>
+                                    </div>
+                                    <p>
+                                        Прежде всего, существующая теория, а также свежий взгляд на привычные вещи —
+                                        безусловно открывает новые горизонты для экономической целесообразности
+                                        принимаемых
+                                        решений. Равным образом, перспективное планирование напрямую зависит от
+                                        направлений
+                                        прогрессивного развития. Лишь интерактивные прототипы, инициированные
+                                        исключительно
+                                        синтетически, ограничены исключительно образом мышления.
+                                    </p>
+                                </div>
+                            </a>
+                            <a href="#" class="block-news__column">
+                                <img class="block-news__image" loading="lazy" src="img/image32.webp" alt="">
+                                <div class="block-news__item">
+                                    <div class="block-news__top">
+                                        <div class="block-news__title">В поселке начали ремонт дорог</div>
+                                        <div class="block-news__data">16.07.2025</div>
+                                    </div>
+                                    <p>
+                                        Поселок в окружении лесов и полей, где можно гулять босиком, собирать грибы и
+                                        слушать пение птиц. Никакого смога, только свежий воздух и тишина, которых так
+                                        не
+                                        хватает в городе.
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <a href="#" class="btn">Загрузить еще</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-questions block1">
+                <div class="container">
+                    <div class="heading-complex">
+                        <h2 class="title1">
+                            Отвечаем на частые вопросы
+                        </h2>
+                    </div>
+                    <div class="block-questions__content">
+                        <div data-spollers class="spollers">
+                            <div class="spollers__items">
+                                <div class="spollers__item">
+                                    <button type="button" data-spoller class="spollers__title">
+                                        <span>Смогу ли я подключить электричество и газ?</span>
+                                        <span class="spollers__icon">
+                                            <svg aria-hidden="true" width="15" height="15">
+                                                <use xlink:href="img/sprite.svg#plus"></use>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <div class="spollers__body">
+                                        <div class="spollers__text">
+                                            <p>
+                                                Мы помогаем получить технические условия и организуем подключение к
+                                                электросетям. В наших поселках уже есть разрешенные мощности – вам не
+                                                придется годами ждать.
+                                            </p>
+                                            <p>
+                                                Если для вас принципиально подключение газа, выбирайте поселки, где он
+                                                уже
+                                                подведен или запланирован. В нашем каталоге поселков для этого можно
+                                                воспользоваться фильтрами.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="spollers__item">
+                                    <button type="button" data-spoller class="spollers__title">
+                                        <span>Как быстро можно начать строительство после покупки?</span>
+                                        <span class="spollers__icon">
+                                            <svg aria-hidden="true" width="15" height="15">
+                                                <use xlink:href="img/sprite.svg#plus"></use>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <div class="spollers__body">
+                                        <div class="spollers__text">
+                                            <p>
+                                                Мы помогаем получить технические условия и организуем подключение к
+                                                электросетям. В наших поселках уже есть разрешенные мощности – вам не
+                                                придется годами ждать.
+                                            </p>
+                                            <p>
+                                                Если для вас принципиально подключение газа, выбирайте поселки, где он
+                                                уже
+                                                подведен или запланирован. В нашем каталоге поселков для этого можно
+                                                воспользоваться фильтрами.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="spollers__item">
+                                    <button type="button" data-spoller class="spollers__title">
+                                        <span>Есть ли инфраструктура в поселках?</span>
+                                        <span class="spollers__icon">
+                                            <svg aria-hidden="true" width="15" height="15">
+                                                <use xlink:href="img/sprite.svg#plus"></use>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <div class="spollers__body">
+                                        <div class="spollers__text">
+                                            <p>
+                                                Мы помогаем получить технические условия и организуем подключение к
+                                                электросетям. В наших поселках уже есть разрешенные мощности – вам не
+                                                придется годами ждать.
+                                            </p>
+                                            <p>
+                                                Если для вас принципиально подключение газа, выбирайте поселки, где он
+                                                уже
+                                                подведен или запланирован. В нашем каталоге поселков для этого можно
+                                                воспользоваться фильтрами.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spollers__items">
+                                <div class="spollers__item">
+                                    <button type="button" data-spoller class="spollers__title">
+                                        <span>Есть ли рассрочка или ипотека?</span>
+                                        <span class="spollers__icon">
+                                            <svg aria-hidden="true" width="15" height="15">
+                                                <use xlink:href="img/sprite.svg#plus"></use>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <div class="spollers__body">
+                                        <div class="spollers__text">
+                                            <p>
+                                                Мы помогаем получить технические условия и организуем подключение к
+                                                электросетям. В наших поселках уже есть разрешенные мощности – вам не
+                                                придется годами ждать.
+                                            </p>
+                                            <p>
+                                                Если для вас принципиально подключение газа, выбирайте поселки, где он
+                                                уже
+                                                подведен или запланирован. В нашем каталоге поселков для этого можно
+                                                воспользоваться фильтрами.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="spollers__item">
+                                    <button type="button" data-spoller class="spollers__title">
+                                        <span>
+                                            Как не ошибиться с выбором участка и местом под строительство?
+                                        </span>
+                                        <span class="spollers__icon">
+                                            <svg aria-hidden="true" width="15" height="15">
+                                                <use xlink:href="img/sprite.svg#plus"></use>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <div class="spollers__body">
+                                        <div class="spollers__text">
+                                            <p>
+                                                Мы помогаем получить технические условия и организуем подключение к
+                                                электросетям. В наших поселках уже есть разрешенные мощности – вам не
+                                                придется годами ждать.
+                                            </p>
+                                            <p>
+                                                Если для вас принципиально подключение газа, выбирайте поселки, где он
+                                                уже
+                                                подведен или запланирован. В нашем каталоге поселков для этого можно
+                                                воспользоваться фильтрами.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-social-subscribe block1">
+                <div class="container">
+                    <div class="heading-complex">
+                        <div class="heading-complex__left">
+                            <h2 class="title1">
+                                Подписывайтесь на наш канал <span>на YouTube или Rutube</span>
+                                о земельных участках
+                            </h2>
+                            <div data-da=".heading-complex__list, 650, last" class="heading-complex__socials">
+                                <a href="#">
+                                    <svg aria-hidden="true" width="46" height="46">
+                                        <use xlink:href="img/sprite.svg#youtube"></use>
+                                    </svg>
+                                </a>
+                                <a href="#">
+                                    <img loading="lazy" src="img/rutube.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="heading-complex__list">
+                            <ul>
+                                <li>
+                                    <span>Полезные советы</span>
+                                </li>
+                                <li>
+                                    <span>Как сэкономить</span>
+                                </li>
+                                <li>
+                                    <span>Новости отрасли</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="block-social-subscribe__content">
+                        <div class="block-social-subscribe__body">
+                            <a href="files/videos/video.mp4" data-fancybox="gallery2" class="cart-video">
+                                <div class="cart-video__image">
+                                    <img loading="lazy" src="img/image15.webp" alt="">
+                                    <div class="play">
+                                        <svg aria-hidden="true" width="17" height="24">
+                                            <use xlink:href="img/sprite.svg#play"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span>Светлый лик правового взаимодействия</span>
+                            </a>
+                            <a href="files/videos/video.mp4" data-fancybox="gallery2" class="cart-video">
+                                <div class="cart-video__image">
+                                    <img loading="lazy" src="img/image7.webp" alt="">
+                                    <div class="play">
+                                        <svg aria-hidden="true" width="17" height="24">
+                                            <use xlink:href="img/sprite.svg#play"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span>Парад бытовой техники оказался началом</span>
+                            </a>
+                            <a href="files/videos/video.mp4" data-fancybox="gallery2" class="cart-video">
+                                <div class="cart-video__image">
+                                    <img loading="lazy" src="img/image23.webp" alt="">
+                                    <div class="play">
+                                        <svg aria-hidden="true" width="17" height="24">
+                                            <use xlink:href="img/sprite.svg#play"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span>Органический трафик бодрит</span>
+                            </a>
+                            <a href="files/videos/video.mp4" data-fancybox="gallery2" class="cart-video">
+                                <div class="cart-video__image">
+                                    <img loading="lazy" src="img/image4.webp" alt="">
+                                    <div class="play">
+                                        <svg aria-hidden="true" width="17" height="24">
+                                            <use xlink:href="img/sprite.svg#play"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span>Курс на социально-ориентированный национальный проект стал нашим флагом</span>
+                            </a>
+                            <a href="files/videos/video.mp4" data-fancybox="gallery2" class="cart-video">
+                                <div class="cart-video__image">
+                                    <img loading="lazy" src="img/image24.webp" alt="">
+                                    <div class="play">
+                                        <svg aria-hidden="true" width="17" height="24">
+                                            <use xlink:href="img/sprite.svg#play"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span>Светлый лик правового взаимодействия</span>
+                            </a>
+                            <a href="files/videos/video.mp4" data-fancybox="gallery2" class="cart-video">
+                                <div class="cart-video__image">
+                                    <img loading="lazy" src="img/image25.webp" alt="">
+                                    <div class="play">
+                                        <svg aria-hidden="true" width="17" height="24">
+                                            <use xlink:href="img/sprite.svg#play"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span>Парад бытовой техники оказался началом</span>
+                            </a>
+                            <a href="files/videos/video.mp4" data-fancybox="gallery2" class="cart-video">
+                                <div class="cart-video__image">
+                                    <img loading="lazy" src="img/image26.webp" alt="">
+                                    <div class="play">
+                                        <svg aria-hidden="true" width="17" height="24">
+                                            <use xlink:href="img/sprite.svg#play"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span>Британские ученые заявили, что чистосердечное признание облегчает душу</span>
+                            </a>
+                            <a href="files/videos/video.mp4" data-fancybox="gallery2" class="cart-video">
+                                <div class="cart-video__image">
+                                    <img loading="lazy" src="img/image27.webp" alt="">
+                                    <div class="play">
+                                        <svg aria-hidden="true" width="17" height="24">
+                                            <use xlink:href="img/sprite.svg#play"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span>Парад бытовой техники оказался началом</span>
+                            </a>
+                            <a href="files/videos/video.mp4" data-fancybox="gallery2" class="cart-video">
+                                <div class="cart-video__image">
+                                    <img loading="lazy" src="img/image28.webp" alt="">
+                                    <div class="play">
+                                        <svg aria-hidden="true" width="17" height="24">
+                                            <use xlink:href="img/sprite.svg#play"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span>Курс на социально-ориентированный национальный проект стал нашим флагом</span>
+                            </a>
+                        </div>
+                        <a href="#" class="btn">Показать еще</a>
+                    </div>
+                </div>
+            </div>
+
+            {% include 'blocks/help-offer.njk' %}
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    <div id="select-site" aria-hidden="true" class="popup">
+        <div class="popup__wrapper">
+            <div class="popup__content">
+                <div data-close class="popup__close">
+                    <svg aria-hidden="true" width="14" height="14">
+                        <use xlink:href="img/sprite.svg#plus"></use>
+                    </svg>
+                </div>
+                <div class="popup__body">
+                    <div class="popup__top">
+                        <div class="title1">
+                            Оставить заявку
+                            <span>на подбор участка</span>
+                        </div>
+                        <p>
+                            Заполните форму, специалист свяжется с вами
+                            и бесплатно проконсультирует по всем вопросам.
+                        </p>
+                    </div>
+                    <form action="#" class="form">
+                        <div class="form__inputs">
+                            <div class="form__input">
+                                <input autocomplete="off" type="text" name="form[]" placeholder="Ваше имя">
+                            </div>
+                            <div class="form__input">
+                                <input data-required autocomplete="off" type="text" name="form[]"
+                                    placeholder="Номер телефона">
+                            </div>
+                        </div>
+                        <div class="checkbox">
+                            <input data-required id="c_1" class="checkbox__input" type="checkbox" value="1"
+                                name="form[]">
+                            <label for="c_1" class="checkbox__label">
+                                <span class="checkbox__icon"></span>
+                                <span class="checkbox__text">
+                                    Отправляя форму, вы подтверждаете, что ознакомились с политикой конфиденциальности и
+                                    согласны на обработку персональных данных.
+                                </span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn">
+                            Отправить заявку
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>
