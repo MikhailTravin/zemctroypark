@@ -1306,15 +1306,15 @@
 								<div class="right-block-calculator__bottom">
 									<div class="right-block-calculator__input">
 										<div class="right-block-calculator__name">Стоимость участка, руб.</div>
-										<input autocomplete="off" type="text" name="form[]" value="2 568 300" placeholder="2 568 300">
+										<input id="price" oninput="this.value = this.value.replace(/[^0-9]/g, '')" autocomplete="off" type="text" value="2 568 300" placeholder="">
 									</div>
 									<div class="right-block-calculator__input">
 										<div class="right-block-calculator__name">Первоначальный взнос, %</div>
-										<input autocomplete="off" type="text" name="form[]" value="20" placeholder="20">
+										<input id="downPaymentPercent" oninput="this.value = this.value.replace(/[^0-9]/g, '')" autocomplete="off" type="text" value="20" placeholder="">
 									</div>
 									<div class="right-block-calculator__input">
 										<div class="right-block-calculator__name">Срок рассрочки, мес.</div>
-										<input autocomplete="off" type="text" name="form[]" value="12" placeholder="12">
+										<input id="months" oninput="this.value = this.value.replace(/[^0-9]/g, '')" autocomplete="off" type="text" value="12" placeholder="">
 									</div>
 								</div>
 							</div>
@@ -1340,35 +1340,41 @@
 										<ul>
 											<li>
 												<div class="left-block-calculator__name">Скидка</div>
-												<div class="left-block-calculator__result">10,5%</div>
+												<div id="result-discount" class="left-block-calculator__result">10.5%</div>
 											</li>
 											<li>
 												<div class="left-block-calculator__name">Первоначальный взнос</div>
-												<div class="left-block-calculator__result">513 660 р.</div>
+												<div id="result-down-payment" class="left-block-calculator__result">513 660
+													р.</div>
 											</li>
 											<li>
 												<div class="left-block-calculator__name">Годовая ставка</div>
-												<div class="left-block-calculator__result">22%</div>
+												<div id="result-rate" class="left-block-calculator__result">22%</div>
 											</li>
 											<li>
 												<div class="left-block-calculator__name">Общая сумма выплат</div>
-												<div class="left-block-calculator__result">2 188 475 р.</div>
+												<div id="result-total-payment" class="left-block-calculator__result">2 188
+													475 р.</div>
 											</li>
 											<li>
 												<div class="left-block-calculator__name">Стоимость участка со скидкой</div>
-												<div class="left-block-calculator__result">2 298 629 р.</div>
+												<div id="result-discounted-price" class="left-block-calculator__result">2
+													298 629 р.</div>
 											</li>
 											<li>
 												<div class="left-block-calculator__name">Сумма рассрочки</div>
-												<div class="left-block-calculator__result">2 054 640 р.</div>
+												<div id="result-loan-amount" class="left-block-calculator__result">2 054 640
+													р.</div>
 											</li>
 											<li>
 												<div class="left-block-calculator__name">Ежемесячный платеж</div>
-												<div class="left-block-calculator__result">364 746 р.</div>
+												<div id="result-monthly-payment" class="left-block-calculator__result">364
+													746 р.</div>
 											</li>
 											<li>
 												<div class="left-block-calculator__name">Переплата</div>
-												<div class="left-block-calculator__result">133 835 р.</div>
+												<div id="result-overpayment" class="left-block-calculator__result">133 835
+													р.</div>
 											</li>
 										</ul>
 									</div>

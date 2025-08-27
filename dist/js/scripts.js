@@ -719,38 +719,39 @@ document.addEventListener('DOMContentLoaded', function () {
   const filterButton = document.querySelector('.filter-catalog__button');
   const filterBody = document.querySelector('.filter-catalog__body');
   const filterClose = document.querySelector('.filter-catalog__close');
-  const htmlElement = document.documentElement;
 
-  filterButton.addEventListener('click', function () {
-    filterCatalog.classList.add('_active');
-    htmlElement.classList.add('filter-open');
-  });
+  if (filterButton) {
+    filterButton.addEventListener('click', function () {
+      filterCatalog.classList.add('_active');
+      document.documentElement.classList.add('filter-open');
+    });
 
-  filterClose.addEventListener('click', function () {
-    filterCatalog.classList.remove('_active');
-    htmlElement.classList.remove('filter-open');
-  });
-
-  document.addEventListener('click', function (event) {
-    const isClickInsideFilter = filterBody.contains(event.target);
-    const isClickOnButton = filterButton.contains(event.target);
-
-    if (!isClickInsideFilter && !isClickOnButton && filterCatalog.classList.contains('_active')) {
+    filterClose.addEventListener('click', function () {
       filterCatalog.classList.remove('_active');
-      htmlElement.classList.remove('filter-open');
-    }
-  });
+      document.documentElement.classList.remove('filter-open');
+    });
 
-  filterBody.addEventListener('click', function (event) {
-    event.stopPropagation();
-  });
+    document.addEventListener('click', function (event) {
+      const isClickInsideFilter = filterBody.contains(event.target);
+      const isClickOnButton = filterButton.contains(event.target);
 
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && filterCatalog.classList.contains('_active')) {
-      filterCatalog.classList.remove('_active');
-      htmlElement.classList.remove('filter-open');
-    }
-  });
+      if (!isClickInsideFilter && !isClickOnButton && filterCatalog.classList.contains('_active')) {
+        filterCatalog.classList.remove('_active');
+        document.documentElement.classList.remove('filter-open');
+      }
+    });
+
+    filterBody.addEventListener('click', function (event) {
+      event.stopPropagation();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && filterCatalog.classList.contains('_active')) {
+        filterCatalog.classList.remove('_active');
+        document.documentElement.classList.remove('filter-open');
+      }
+    });
+  }
 });
 
 //========================================================================================================================================================
@@ -861,3 +862,85 @@ function pageNavigation() {
   }
 }
 pageNavigation()
+
+//========================================================================================================================================================
+
+//Калькулятор
+let blockCalculator = document.querySelector('.block-calculator');
+if (blockCalculator) {
+  // Таблица скидок: {месяцы: скидка%}
+  const discountTable = {
+    12: 1.5,
+    11: 3,
+    10: 4.5,
+    9: 6,
+    8: 7.5,
+    7: 9,
+    6: 10.5,
+    5: 12,
+    4: 13.5,
+    3: 15,
+    2: 16.5,
+    1: 18
+  };
+
+  // Годовая ставка = 0% (рассрочка без процентов)
+  const annualRate = 0;
+  const monthlyRate = 0;
+
+  function calculate() {
+    // Получаем и очищаем значение стоимости участка
+    const priceStr = document.getElementById('price').value.replace(/\s/g, '');
+    const price = parseFloat(priceStr) || 0;
+
+    // Процент первоначального взноса
+    const downPaymentPercent = parseFloat(document.getElementById('downPaymentPercent').value) || 0;
+
+    // Срок рассрочки в месяцах
+    const months = parseInt(document.getElementById('months').value) || 1;
+
+    // Определяем скидку по таблице
+    let discount = discountTable[months] || 0;
+
+    // Стоимость участка со скидкой
+    const discountedPrice = price * (1 - discount / 100);
+
+    // Первоначальный взнос — от суммы со скидкой
+    const downPayment = discountedPrice * (downPaymentPercent / 100);
+
+    // Сумма рассрочки (тело)
+    const loanAmount = discountedPrice - downPayment;
+
+    // Ежемесячный платёж (без процентов)
+    const monthlyPayment = loanAmount / months;
+
+    // Общая сумма выплат
+    const totalPayment = monthlyPayment * months;
+
+    // Переплата (при 0% будет 0)
+    const overpayment = totalPayment - loanAmount;
+
+    // Форматирование чисел: целые, с пробелами, без дробной части
+    function format(num) {
+      return Math.round(num).toLocaleString('ru-RU');
+    }
+
+    // Обновляем все результаты на странице
+    document.getElementById('result-discount').textContent = `${discount}%`;
+    document.getElementById('result-down-payment').textContent = `${format(downPayment)} р.`;
+    document.getElementById('result-rate').textContent = `${annualRate}%`;
+    document.getElementById('result-total-payment').textContent = `${format(totalPayment)} р.`;
+    document.getElementById('result-discounted-price').textContent = `${format(discountedPrice)} р.`;
+    document.getElementById('result-loan-amount').textContent = `${format(loanAmount)} р.`;
+    document.getElementById('result-monthly-payment').textContent = `${format(monthlyPayment)} р.`;
+    document.getElementById('result-overpayment').textContent = `${format(overpayment)} р.`;
+  }
+
+  // Добавляем слушатели на поля ввода
+  document.getElementById('price').addEventListener('input', calculate);
+  document.getElementById('downPaymentPercent').addEventListener('input', calculate);
+  document.getElementById('months').addEventListener('input', calculate);
+
+  // Пересчитываем при загрузке страницы
+  window.addEventListener('load', calculate);
+}
