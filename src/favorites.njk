@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Избранное</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-favorites block1">
+                <div class="container">
+                    <div class="block-favorites__content">
+                        <div class="banner">
+                            <img src="img/bg2.webp" alt="" class="banner__bg">
+                            <div class="banner__content">
+                                <div class="breadcrumbs">
+                                    <div class="breadcrumbs__content">
+                                        <ul>
+                                            <li><a href="#">Главная</a></li>
+                                            <li><span>Избранное</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="banner__bottom">
+                                    <h2 class="title1">
+                                        Избранное
+                                    </h2>
+                                    <div class="banner__icons">
+                                        <div class="banner__icon">
+                                            <img src="img/favourite-active.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-favorites__body">
+                            <div class="cart-catalog">
+                                <a href="#" class="cart-catalog__images">
+                                    <img loading="lazy" src="img/image4.webp" alt="">
+                                    <div class="cart-catalog__tags">
+                                        <div class="cart-catalog__tag">
+                                            Рядом водоемы
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Проведен газ
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Общественный транспорт
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="favorites">
+                                    <button type="button" class="favorites__icons _active">
+                                        <span class="favorites__icon">
+                                            <img src="img/favourite.svg" alt="">
+                                        </span>
+                                        <span class="favorites__icon-active">
+                                            <img src="img/favourite-active.svg" alt="">
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="cart-catalog__item">
+                                    <a href="#" class="cart-catalog__title">Барыбино</a>
+                                    <div class="cart-catalog__bottom">
+                                        <div class="cart-catalog__text">
+                                            <a href="#">Район Домодедово</a>
+                                            <a href="#">Каширское шоссе, 39 км от МКАД</a>
+                                        </div>
+                                        <div class="cart-catalog__prices">
+                                            <div class="cart-catalog__price">от 149 000 р.</div>
+                                            <span>Цена за сотку</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-catalog">
+                                <a href="#" class="cart-catalog__images">
+                                    <img loading="lazy" src="img/image5.webp" alt="">
+                                    <div class="cart-catalog__tags">
+                                        <div class="cart-catalog__tag">
+                                            Рядом водоемы
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Школа рядом
+                                        </div>
+                                    </div>
+                                    <div class="sale">
+                                        149 000 руб. <span>200 000</span><br> за сотку
+                                    </div>
+                                </a>
+                                <div class="favorites">
+                                    <button type="button" class="favorites__icons _active">
+                                        <span class="favorites__icon">
+                                            <img src="img/favourite.svg" alt="">
+                                        </span>
+                                        <span class="favorites__icon-active">
+                                            <img src="img/favourite-active.svg" alt="">
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="cart-catalog__item">
+                                    <a href="#" class="cart-catalog__title">Братовщина</a>
+                                    <div class="cart-catalog__bottom">
+                                        <div class="cart-catalog__text">
+                                            <a href="#">Район Домодедово</a>
+                                            <a href="#">Каширское шоссе, 39 км от МКАД</a>
+                                        </div>
+                                        <div class="cart-catalog__prices">
+                                            <div class="cart-catalog__price">от 149 000 р.</div>
+                                            <span>Цена за сотку</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-catalog">
+                                <a href="#" class="cart-catalog__images">
+                                    <img loading="lazy" src="img/image6.webp" alt="">
+                                    <div class="cart-catalog__tags">
+                                        <div class="cart-catalog__tag">
+                                            В окружении леса
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Проведен газ
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="favorites">
+                                    <button type="button" class="favorites__icons _active">
+                                        <span class="favorites__icon">
+                                            <img src="img/favourite.svg" alt="">
+                                        </span>
+                                        <span class="favorites__icon-active">
+                                            <img src="img/favourite-active.svg" alt="">
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="cart-catalog__item">
+                                    <a href="#" class="cart-catalog__title">Калистово</a>
+                                    <div class="cart-catalog__bottom">
+                                        <div class="cart-catalog__text">
+                                            <a href="#">Район Домодедово</a>
+                                            <a href="#">Каширское шоссе, 39 км от МКАД</a>
+                                        </div>
+                                        <div class="cart-catalog__prices">
+                                            <div class="cart-catalog__price">от 149 000 р.</div>
+                                            <span>Цена за сотку</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-catalog">
+                                <a href="#" class="cart-catalog__images">
+                                    <img loading="lazy" src="img/image7.webp" alt="">
+                                    <div class="cart-catalog__tags">
+                                        <div class="cart-catalog__tag">
+                                            Рядом водоемы
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Проведен газ
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Общественный транспорт
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="favorites">
+                                    <button type="button" class="favorites__icons _active">
+                                        <span class="favorites__icon">
+                                            <img src="img/favourite.svg" alt="">
+                                        </span>
+                                        <span class="favorites__icon-active">
+                                            <img src="img/favourite-active.svg" alt="">
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="cart-catalog__item">
+                                    <a href="#" class="cart-catalog__title">Карцево</a>
+                                    <div class="cart-catalog__bottom">
+                                        <div class="cart-catalog__text">
+                                            <a href="#">Район Домодедово</a>
+                                            <a href="#">Каширское шоссе, 39 км от МКАД</a>
+                                        </div>
+                                        <div class="cart-catalog__prices">
+                                            <div class="cart-catalog__price">от 149 000 р.</div>
+                                            <span>Цена за сотку</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-catalog">
+                                <a href="#" class="cart-catalog__images">
+                                    <img loading="lazy" src="img/image8.webp" alt="">
+                                    <div class="cart-catalog__tags">
+                                        <div class="cart-catalog__tag">
+                                            Рядом водоемы
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Школа рядом
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="favorites">
+                                    <button type="button" class="favorites__icons _active">
+                                        <span class="favorites__icon">
+                                            <img src="img/favourite.svg" alt="">
+                                        </span>
+                                        <span class="favorites__icon-active">
+                                            <img src="img/favourite-active.svg" alt="">
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="cart-catalog__item">
+                                    <a href="#" class="cart-catalog__title">Кузьминское парк</a>
+                                    <div class="cart-catalog__bottom">
+                                        <div class="cart-catalog__text">
+                                            <a href="#">Район Домодедово</a>
+                                            <a href="#">Каширское шоссе, 39 км от МКАД</a>
+                                        </div>
+                                        <div class="cart-catalog__prices">
+                                            <div class="cart-catalog__price">от 149 000 р.</div>
+                                            <span>Цена за сотку</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-catalog">
+                                <a href="#" class="cart-catalog__images">
+                                    <img loading="lazy" src="img/image9.webp" alt="">
+                                    <div class="cart-catalog__tags">
+                                        <div class="cart-catalog__tag">
+                                            В окружении леса
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Проведен газ
+                                        </div>
+                                    </div>
+                                    <div class="sale">
+                                        149 000 руб. <span>200 000</span><br> за сотку
+                                    </div>
+                                </a>
+                                <div class="favorites">
+                                    <button type="button" class="favorites__icons _active">
+                                        <span class="favorites__icon">
+                                            <img src="img/favourite.svg" alt="">
+                                        </span>
+                                        <span class="favorites__icon-active">
+                                            <img src="img/favourite-active.svg" alt="">
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="cart-catalog__item">
+                                    <a href="#" class="cart-catalog__title">Пахра Ривер Парк</a>
+                                    <div class="cart-catalog__bottom">
+                                        <div class="cart-catalog__text">
+                                            <a href="#">Район Домодедово</a>
+                                            <a href="#">Каширское шоссе, 39 км от МКАД</a>
+                                        </div>
+                                        <div class="cart-catalog__prices">
+                                            <div class="cart-catalog__price">от 149 000 р.</div>
+                                            <span>Цена за сотку</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-catalog">
+                                <a href="#" class="cart-catalog__images">
+                                    <img loading="lazy" src="img/image10.webp" alt="">
+                                    <div class="cart-catalog__tags">
+                                        <div class="cart-catalog__tag">
+                                            Рядом водоемы
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Проведен газ
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Общественный транспорт
+                                        </div>
+                                    </div>
+                                    <div class="sale">
+                                        149 000 руб. <span>200 000</span><br> за сотку
+                                    </div>
+                                </a>
+                                <div class="favorites">
+                                    <button type="button" class="favorites__icons _active">
+                                        <span class="favorites__icon">
+                                            <img src="img/favourite.svg" alt="">
+                                        </span>
+                                        <span class="favorites__icon-active">
+                                            <img src="img/favourite-active.svg" alt="">
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="cart-catalog__item">
+                                    <a href="#" class="cart-catalog__title">Медведки</a>
+                                    <div class="cart-catalog__bottom">
+                                        <div class="cart-catalog__text">
+                                            <a href="#">Район Домодедово</a>
+                                            <a href="#">Каширское шоссе, 39 км от МКАД</a>
+                                        </div>
+                                        <div class="cart-catalog__prices">
+                                            <div class="cart-catalog__price">от 149 000 р.</div>
+                                            <span>Цена за сотку</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-catalog">
+                                <a href="#" class="cart-catalog__images">
+                                    <img loading="lazy" src="img/image11.webp" alt="">
+                                    <div class="cart-catalog__tags">
+                                        <div class="cart-catalog__tag">
+                                            Рядом водоемы
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Школа рядом
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="favorites">
+                                    <button type="button" class="favorites__icons _active">
+                                        <span class="favorites__icon">
+                                            <img src="img/favourite.svg" alt="">
+                                        </span>
+                                        <span class="favorites__icon-active">
+                                            <img src="img/favourite-active.svg" alt="">
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="cart-catalog__item">
+                                    <a href="#" class="cart-catalog__title">Рижские Зори</a>
+                                    <div class="cart-catalog__bottom">
+                                        <div class="cart-catalog__text">
+                                            <a href="#">Район Домодедово</a>
+                                            <a href="#">Каширское шоссе, 39 км от МКАД</a>
+                                        </div>
+                                        <div class="cart-catalog__prices">
+                                            <div class="cart-catalog__price">от 149 000 р.</div>
+                                            <span>Цена за сотку</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-catalog">
+                                <a href="#" class="cart-catalog__images">
+                                    <img loading="lazy" src="img/image12.webp" alt="">
+                                    <div class="cart-catalog__tags">
+                                        <div class="cart-catalog__tag">
+                                            В окружении леса
+                                        </div>
+                                        <div class="cart-catalog__tag">
+                                            Проведен газ
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="favorites">
+                                    <button type="button" class="favorites__icons _active">
+                                        <span class="favorites__icon">
+                                            <img src="img/favourite.svg" alt="">
+                                        </span>
+                                        <span class="favorites__icon-active">
+                                            <img src="img/favourite-active.svg" alt="">
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="cart-catalog__item">
+                                    <a href="#" class="cart-catalog__title">ЭкоКвартал Раздолье</a>
+                                    <div class="cart-catalog__bottom">
+                                        <div class="cart-catalog__text">
+                                            <a href="#">Район Домодедово</a>
+                                            <a href="#">Каширское шоссе, 39 км от МКАД</a>
+                                        </div>
+                                        <div class="cart-catalog__prices">
+                                            <div class="cart-catalog__price">от 149 000 р.</div>
+                                            <span>Цена за сотку</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% include 'blocks/help-offer.njk' %}
+
+            {% include 'blocks/ceo-text.njk' %}
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

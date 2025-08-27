@@ -875,6 +875,7 @@ a {
       gap: 16px;
       padding: 15px;
       min-height: auto;
+      gap: 40px;
     }
   }
 
@@ -900,6 +901,9 @@ a {
     display: flex;
     gap: 12px;
     margin: 0px 0px 2px 0px;
+    @media (max-width: 650px) {
+      display: none;
+    }
     .btn {
       width: 320px;
       padding: 5px 24px;
@@ -934,8 +938,18 @@ a {
         height: 18px;
       }
     }
-    @media (max-width: 992px) {
-      display: none;
+    img {
+      width: 28px;
+      height: 28px;
+      @media (max-width: 768px) {
+        width: 22px;
+        height: 22px;
+      }
+    }
+    @media (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 40px;
     }
   }
 }
