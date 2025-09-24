@@ -203,25 +203,26 @@ if (menuItems) {
       }
     });
 
-    // Обработка клика (только для мобильных)
     item.addEventListener('click', function (e) {
       if (window.innerWidth < breakpoint) {
-        e.preventDefault();
-        e.stopPropagation(); // Останавливаем всплытие, чтобы не закрылось сразу
+        const isLinkClick = e.target.closest('.menu-header__dropdowm a');
 
-        const wasActive = this.classList.contains('menu-click');
+        if (!isLinkClick) {
+          e.preventDefault(); 
+          e.stopPropagation();
 
-        // Сброс всех состояний
-        menuItems.forEach(el => {
-          el.classList.remove('menu-click');
-        });
+          const wasActive = this.classList.contains('menu-click');
 
-        // Переключение состояния
-        if (!wasActive) {
-          this.classList.add('menu-click');
-          docEl.classList.add('menu-click');
-        } else {
-          docEl.classList.remove('menu-click');
+          menuItems.forEach(el => {
+            el.classList.remove('menu-click');
+          });
+
+          if (!wasActive) {
+            this.classList.add('menu-click');
+            docEl.classList.add('menu-click');
+          } else {
+            docEl.classList.remove('menu-click');
+          }
         }
       }
     });
@@ -232,7 +233,7 @@ if (menuItems) {
       window.innerWidth < breakpoint &&
       docEl.classList.contains('menu-click') &&
       !e.target.closest('.menu-header__nav') &&
-      !e.target.closest('.menu-header__dropdown')
+      !e.target.closest('.menu-header__dropdowm')
     ) {
       docEl.classList.remove('menu-click');
       menuItems.forEach(item => {

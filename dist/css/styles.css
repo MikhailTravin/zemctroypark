@@ -473,6 +473,7 @@ a {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 28px;
+  margin: 0px 0px 0px 0px;
 }
 @media (max-width: 1200px) {
   .menu-header__nav {
