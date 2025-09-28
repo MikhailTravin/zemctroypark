@@ -137,6 +137,9 @@ a {
   border-radius: 30px;
   padding: 5px 34px;
   transition: background-color 0.3s;
+  &:focus {
+    outline: none;
+  }
   &:hover {
     background-color: #43522f;
   }
