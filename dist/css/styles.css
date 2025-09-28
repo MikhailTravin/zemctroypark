@@ -438,6 +438,11 @@ a {
     overflow: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    -ms-scroll-chaining: none;
+        overscroll-behavior: contain;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
   }
   .menu-header::-webkit-scrollbar {
     display: none;
@@ -647,6 +652,9 @@ a {
     overflow: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    -ms-scroll-chaining: none;
+        overscroll-behavior: contain;
   }
   .menu-header__body::-webkit-scrollbar {
     display: none;
@@ -670,6 +678,9 @@ a {
     max-height: 100%;
     padding: 0px 0px 0px 0px;
     background: var(--svetlo-zelenyy);
+    overflow: visible;
+    max-height: none;
+    height: auto;
   }
 }
 @media (max-width: 1200px) and (min-width: 650px) {
@@ -695,12 +706,18 @@ a {
 @media (max-width: 650px) {
   .menu-header__column {
     margin: 0px 0px 20px 0px;
+    display: inline-block;
+    width: 100%;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+         break-inside: avoid-column;
   }
   .menu-header__column > .menu-header__list {
-    -webkit-column-break-inside: avoid;
-       -moz-column-break-inside: avoid;
-            break-inside: avoid;
+    -moz-column-break-inside: avoid;
+         break-inside: avoid;
     page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
   }
 }
 .menu-header__column ul {
@@ -958,6 +975,9 @@ a {
   padding: 5px 34px;
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
+}
+.btn:focus {
+  outline: none;
 }
 .btn:hover {
   background-color: #43522f;
@@ -9502,6 +9522,8 @@ body::after {
       -ms-flex-align: center;
           align-items: center;
   gap: 6px;
+  padding: 0px 0px 0px 0px;
+  min-height: auto;
 }
 .checkbox__icon {
   cursor: pointer;
@@ -9539,6 +9561,35 @@ body::after {
   font-weight: 400;
   font-size: 14px;
   line-height: 130%;
+}
+.checkbox__error {
+  color: #d93025;
+  font-size: 14px;
+  line-height: 120%;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #fce8e6;
+  border: 1px solid #f28b82;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  max-width: 100%;
+}
+.checkbox__error svg {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 16px;
+          flex: 0 0 16px;
+}
+@media (max-width: 768px) {
+  .checkbox__error {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
 }
 
 .options {

@@ -390,6 +390,7 @@ function formFieldsInit(options = { viewPass: false, autoHeight: false }) {
             }
         }
     });
+
     document.body.addEventListener("focusout", function (e) {
         const targetElement = e.target;
         if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
@@ -402,6 +403,14 @@ function formFieldsInit(options = { viewPass: false, autoHeight: false }) {
             }
         }
     });
+
+    document.body.addEventListener("change", function (e) {
+        const targetElement = e.target;
+        if (targetElement.type === "checkbox" && (targetElement.hasAttribute('data-required') || targetElement.hasAttribute('required'))) {
+            formValidate.validateInput(targetElement);
+        }
+    });
+
     if (options.viewPass) {
         document.addEventListener("click", function (e) {
             const targetElement = e.target;
@@ -413,6 +422,7 @@ function formFieldsInit(options = { viewPass: false, autoHeight: false }) {
             }
         });
     }
+
     if (options.autoHeight) {
         const textareas = document.querySelectorAll('textarea[data-autoheight]');
         if (textareas.length) {
@@ -437,14 +447,16 @@ function formFieldsInit(options = { viewPass: false, autoHeight: false }) {
         }
     }
 }
+
 formFieldsInit({
     viewPass: true,
     autoHeight: false
 });
+
 let formValidate = {
     getErrors(form) {
         let error = 0;
-        const formRequiredItems = form.querySelectorAll('*[data-required]');
+        const formRequiredItems = form.querySelectorAll('*[data-required], [required]');
         if (formRequiredItems.length) {
             formRequiredItems.forEach(formRequiredItem => {
                 if ((formRequiredItem.offsetParent !== null || formRequiredItem.tagName === "SELECT") && !formRequiredItem.disabled) {
@@ -454,59 +466,87 @@ let formValidate = {
         }
         return error;
     },
+
     validateInput(formRequiredItem) {
         let error = 0;
+
+        if (formRequiredItem.type === "checkbox") {
+            const isRequired = formRequiredItem.hasAttribute('required') || formRequiredItem.hasAttribute('data-required');
+
+            if (isRequired && !formRequiredItem.checked) {
+                this.addError(formRequiredItem);
+                error++;
+            } else {
+                this.removeError(formRequiredItem);
+            }
+            return error;
+        }
+
         if (formRequiredItem.dataset.required === "email") {
             formRequiredItem.value = formRequiredItem.value.replace(/\s/g, "");
             if (this.emailTest(formRequiredItem)) {
                 this.addError(formRequiredItem);
-                this.removeSuccess(formRequiredItem);
                 error++;
             } else {
                 this.removeError(formRequiredItem);
-                this.addSuccess(formRequiredItem);
             }
-        } else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
+        } else if (!formRequiredItem.value.trim()) {
             this.addError(formRequiredItem);
-            this.removeSuccess(formRequiredItem);
             error++;
         } else {
-            if (!formRequiredItem.value.trim()) {
-                this.addError(formRequiredItem);
-                this.removeSuccess(formRequiredItem);
-                error++;
-            } else {
-                this.removeError(formRequiredItem);
-                this.addSuccess(formRequiredItem);
-            }
+            this.removeError(formRequiredItem);
         }
+
         return error;
     },
+
     addError(formRequiredItem) {
         formRequiredItem.classList.add('_form-error');
         formRequiredItem.parentElement.classList.add('_form-error');
-        const inputError = formRequiredItem.parentElement.querySelector('.form__error');
-        if (inputError) formRequiredItem.parentElement.removeChild(inputError);
-        if (formRequiredItem.dataset.error) {
+
+        const existingError = formRequiredItem.parentElement.querySelector('.form__error');
+        if (existingError) {
+            existingError.remove();
+        }
+
+        if (formRequiredItem.type === "checkbox") {
+            const checkboxElement = formRequiredItem.closest('.checkbox');
+            const existingCheckboxError = checkboxElement.querySelector('.checkbox__error');
+
+            if (!existingCheckboxError) {
+                const errorHTML = `
+                    <div class="checkbox__error">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#d93025">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                        </svg>
+                        Пожалуйста, установите этот флажок, чтобы продолжить.
+                    </div>
+                `;
+                checkboxElement.insertAdjacentHTML('beforeend', errorHTML);
+            }
+        }
+        else if (formRequiredItem.dataset.error) {
             formRequiredItem.parentElement.insertAdjacentHTML('beforeend', `<div class="form__error">${formRequiredItem.dataset.error}</div>`);
         }
     },
+
     removeError(formRequiredItem) {
         formRequiredItem.classList.remove('_form-error');
         formRequiredItem.parentElement.classList.remove('_form-error');
+
         const inputError = formRequiredItem.parentElement.querySelector('.form__error');
         if (inputError) {
-            formRequiredItem.parentElement.removeChild(inputError);
+            inputError.remove();
+        }
+
+        if (formRequiredItem.type === "checkbox") {
+            const checkboxError = formRequiredItem.closest('.checkbox').querySelector('.checkbox__error');
+            if (checkboxError) {
+                checkboxError.remove();
+            }
         }
     },
-    addSuccess(formRequiredItem) {
-        formRequiredItem.classList.add('_form-success');
-        formRequiredItem.parentElement.classList.add('_form-success');
-    },
-    removeSuccess(formRequiredItem) {
-        formRequiredItem.classList.remove('_form-success');
-        formRequiredItem.parentElement.classList.remove('_form-success');
-    },
+
     formClean(form) {
         form.reset();
         setTimeout(() => {
@@ -515,6 +555,7 @@ let formValidate = {
                 el.parentElement.classList.remove('_form-focus');
                 el.classList.remove('_form-focus');
                 formValidate.removeError(el);
+                formValidate.removeSuccess(el);
             });
             const checkboxes = form.querySelectorAll('.checkbox__input');
             checkboxes.forEach(checkbox => {
@@ -529,10 +570,12 @@ let formValidate = {
             }
         }, 0);
     },
+
     emailTest(formRequiredItem) {
         return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(formRequiredItem.value);
     }
 };
+
 function formSubmit() {
     const forms = document.forms;
     if (forms.length) {
@@ -543,14 +586,29 @@ function formSubmit() {
     }
 
     async function formSubmitAction(form, e) {
+        form.setAttribute('novalidate', true);
+
         const error = form.hasAttribute('data-no-validate') ? 0 : formValidate.getErrors(form);
+
         if (error === 0) {
+            if (!form.checkValidity()) {
+                e.preventDefault();
+
+                const invalidFields = form.querySelectorAll(':invalid');
+                invalidFields.forEach(field => {
+                    field.reportValidity();
+                });
+
+                return;
+            }
+
             const ajax = form.hasAttribute('data-ajax');
             if (ajax) {
                 e.preventDefault();
                 const action = form.getAttribute('action')?.trim() || '#';
                 const method = form.getAttribute('method')?.trim() || 'GET';
                 const formData = new FormData(form);
+
                 form.classList.add('_sending');
                 try {
                     const response = await fetch(action, { method, body: formData });
@@ -559,7 +617,7 @@ function formSubmit() {
                         form.classList.remove('_sending');
                         formSent(form, result);
                     } else {
-                        alert('Ошибка');
+                        alert('Ошибка отправки формы');
                         form.classList.remove('_sending');
                     }
                 } catch {
@@ -590,4 +648,4 @@ function formSubmit() {
         console.log('[Формы]: Форма отправлена!');
     }
 }
-formSubmit()
+formSubmit();

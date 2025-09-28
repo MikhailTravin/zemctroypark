@@ -168,11 +168,21 @@ if (header) {
 //Меню
 const iconMenu = document.querySelector('.header__burger');
 const headerTop = document.querySelector('.menu-header');
+const menuItems = document.querySelectorAll('.menu-header__item');
+const docEl = document.documentElement;
+const breakpoint = 992;
+let isMobile = window.innerWidth < breakpoint;
+
+function updateViewportState() {
+  isMobile = window.innerWidth < breakpoint;
+}
+
 if (iconMenu) {
   iconMenu.addEventListener("click", function (e) {
     e.stopPropagation();
     document.documentElement.classList.toggle("menu-open");
   });
+
   document.addEventListener('click', function (e) {
     const isClickInsideHeaderTop = headerTop && headerTop.contains(e.target);
     const isClickOnMenuIcon = e.target === iconMenu || iconMenu.contains(e.target);
@@ -183,45 +193,49 @@ if (iconMenu) {
   });
 }
 
-const menuItems = document.querySelectorAll('.menu-header__item');
-const docEl = document.documentElement;
-const breakpoint = 992;
-
 if (menuItems) {
   menuItems.forEach(item => {
     item.addEventListener('mouseenter', function () {
-      if (window.innerWidth >= breakpoint) {
+      if (!isMobile) {
         docEl.classList.add('menu-hover');
         this.classList.add('menu-hover');
       }
     });
 
     item.addEventListener('mouseleave', function () {
-      if (window.innerWidth >= breakpoint) {
+      if (!isMobile) {
         docEl.classList.remove('menu-hover');
         this.classList.remove('menu-hover');
       }
     });
 
     item.addEventListener('click', function (e) {
-      if (window.innerWidth < breakpoint) {
+      if (isMobile) {
         const isLinkClick = e.target.closest('.menu-header__dropdowm a');
 
         if (!isLinkClick) {
-          e.preventDefault(); 
+          e.preventDefault();
           e.stopPropagation();
 
           const wasActive = this.classList.contains('menu-click');
 
           menuItems.forEach(el => {
-            el.classList.remove('menu-click');
+            if (el !== this) {
+              el.classList.remove('menu-click');
+            }
           });
 
           if (!wasActive) {
             this.classList.add('menu-click');
             docEl.classList.add('menu-click');
           } else {
-            docEl.classList.remove('menu-click');
+            this.classList.remove('menu-click');
+            const hasActive = Array.from(menuItems).some(item =>
+              item.classList.contains('menu-click')
+            );
+            if (!hasActive) {
+              docEl.classList.remove('menu-click');
+            }
           }
         }
       }
@@ -229,26 +243,32 @@ if (menuItems) {
   });
 
   document.addEventListener('click', function (e) {
-    if (
-      window.innerWidth < breakpoint &&
-      docEl.classList.contains('menu-click') &&
-      !e.target.closest('.menu-header__nav') &&
-      !e.target.closest('.menu-header__dropdowm')
-    ) {
-      docEl.classList.remove('menu-click');
-      menuItems.forEach(item => {
-        item.classList.remove('menu-click');
-      });
+    if (isMobile && docEl.classList.contains('menu-click')) {
+      if (!e.target.closest('.menu-header__nav') &&
+        !e.target.closest('.menu-header__dropdowm')) {
+        docEl.classList.remove('menu-click');
+        menuItems.forEach(item => {
+          item.classList.remove('menu-click');
+        });
+      }
     }
   });
 
+  let resizeTimeout;
   window.addEventListener('resize', function () {
-    if (window.innerWidth >= breakpoint) {
-      docEl.classList.remove('menu-click');
-      menuItems.forEach(item => {
-        item.classList.remove('menu-click');
-      });
-    }
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      updateViewportState();
+
+      if (!isMobile) {
+        docEl.classList.remove('menu-click');
+        docEl.classList.remove('menu-hover');
+        menuItems.forEach(item => {
+          item.classList.remove('menu-click');
+          item.classList.remove('menu-hover');
+        });
+      }
+    }, 100);
   });
 }
 
